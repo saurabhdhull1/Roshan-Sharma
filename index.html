@@ -35,6 +35,14 @@
         ::-webkit-scrollbar-track { background: #0f172a; }
         ::-webkit-scrollbar-thumb { background: #f97316; border-radius: 4px; }
         ::-webkit-scrollbar-thumb:hover { background: #ea580c; }
+        
+        /* Scroll Reveal Animation */
+        .reveal { opacity: 0; transform: translateY(40px); transition: all 0.8s ease-out; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+        
+        /* Floating Menu Safe Area */
+        body { padding-bottom: calc(env(safe-area-inset-bottom) + 80px); }
+        @media (min-width: 768px) { body { padding-bottom: 0; } }
     </style>
 </head>
 <body class="bg-slate-900 text-slate-100 font-sans antialiased flex flex-col min-h-screen relative overflow-x-hidden selection:bg-accent selection:text-white">
@@ -84,7 +92,7 @@
                     <a href="#contact" class="bg-gradient-to-r from-accent to-orange-500 text-white px-8 py-3.5 rounded-xl font-bold hover:shadow-[0_0_20px_rgba(249,115,22,0.6)] transform hover:-translate-y-1 transition duration-300 text-center flex items-center justify-center gap-2">
                         <span>Sath Judein</span> <i class="fas fa-arrow-right text-sm"></i>
                     </a>
-                    <a href="tel:+919350689645" class="bg-white/10 backdrop-blur-md text-white border border-white/20 px-8 py-3.5 rounded-xl font-bold hover:bg-white/20 transform hover:-translate-y-1 transition duration-300 text-center flex items-center justify-center gap-2 group">
+                    <a href="tel:+919899442955" class="bg-white/10 backdrop-blur-md text-white border border-white/20 px-8 py-3.5 rounded-xl font-bold hover:bg-white/20 transform hover:-translate-y-1 transition duration-300 text-center flex items-center justify-center gap-2 group">
                         <i class="fas fa-phone-alt group-hover:rotate-12 transition-transform"></i> Call Karein
                     </a>
                 </div>
@@ -102,7 +110,7 @@
     </section>
 
     <!-- About Section -->
-    <section id="about" class="py-20 relative z-10">
+    <section id="about" class="py-20 relative z-10 reveal">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
                 <h2 class="text-3xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-white to-slate-400 drop-shadow-sm">Mere Baare Mein</h2>
@@ -126,20 +134,57 @@
         </div>
     </section>
 
+    <!-- Vision & Mission Section (New Content) -->
+    <section id="vision" class="py-20 relative z-10 reveal">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-white to-slate-400 drop-shadow-sm">Mera Sankalp</h2>
+                <div class="w-24 h-1.5 bg-gradient-to-r from-accent to-orange-400 mx-auto mt-6 rounded-full shadow-[0_0_10px_rgba(249,115,22,0.5)]"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="bg-white/5 backdrop-blur-lg border border-white/10 p-8 rounded-3xl hover:bg-white/10 transition duration-300 transform hover:-translate-y-2 hover:shadow-[0_10px_30px_rgba(59,130,246,0.2)]">
+                    <div class="w-16 h-16 bg-blue-500/20 text-blue-400 rounded-2xl flex items-center justify-center text-3xl mb-6">
+                        <i class="fas fa-road"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-4">Vikas (Development)</h3>
+                    <p class="text-slate-300 font-light leading-relaxed">Sonipat ke infrastructure, sadkon aur suvidhaon ko aadhunik banana aur behtar connectivity pradan karna.</p>
+                </div>
+                <!-- Card 2 -->
+                <div class="bg-white/5 backdrop-blur-lg border border-white/10 p-8 rounded-3xl hover:bg-white/10 transition duration-300 transform hover:-translate-y-2 hover:shadow-[0_10px_30px_rgba(249,115,22,0.2)]">
+                    <div class="w-16 h-16 bg-orange-500/20 text-orange-400 rounded-2xl flex items-center justify-center text-3xl mb-6">
+                        <i class="fas fa-user-graduate"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-4">Shiksha & Rozgar</h3>
+                    <p class="text-slate-300 font-light leading-relaxed">Yuvaon ke liye naye rozgar ke avsar paida karna aur shiksha ke star ko majboot karna mera pramukh lakshya hai.</p>
+                </div>
+                <!-- Card 3 -->
+                <div class="bg-white/5 backdrop-blur-lg border border-white/10 p-8 rounded-3xl hover:bg-white/10 transition duration-300 transform hover:-translate-y-2 hover:shadow-[0_10px_30px_rgba(168,85,247,0.2)]">
+                    <div class="w-16 h-16 bg-purple-500/20 text-purple-400 rounded-2xl flex items-center justify-center text-3xl mb-6">
+                        <i class="fas fa-hands-helping"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-4">Jan Kalyan</h3>
+                    <p class="text-slate-300 font-light leading-relaxed">Har varg ki samasyaon ko sunna aur unka nivaaran karna. Swasthya aur suraksha meri prathmikta hai.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Contact & Social Media Section -->
-    <section id="contact" class="py-20 relative z-10">
+    <section id="contact" class="py-20 relative z-10 reveal">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 class="text-3xl md:text-5xl font-extrabold text-white mb-16 drop-shadow-md">Sampark Karein</h2>
             
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10">
                 
                 <!-- Phone Card -->
-                <a href="tel:+919350689645" class="group bg-white/5 hover:bg-white/10 backdrop-blur-lg border border-white/10 hover:border-green-500/50 p-8 rounded-3xl shadow-xl hover:shadow-[0_0_30px_rgba(34,197,94,0.2)] transition-all duration-300 transform hover:-translate-y-3 flex flex-col items-center">
+                <a href="tel:+919899442955" class="group bg-white/5 hover:bg-white/10 backdrop-blur-lg border border-white/10 hover:border-green-500/50 p-8 rounded-3xl shadow-xl hover:shadow-[0_0_30px_rgba(34,197,94,0.2)] transition-all duration-300 transform hover:-translate-y-3 flex flex-col items-center">
                     <div class="w-20 h-20 bg-green-500/20 border border-green-500/30 text-green-400 rounded-full flex items-center justify-center text-3xl mb-6 group-hover:scale-110 group-hover:bg-green-500 group-hover:text-white transition-all duration-300">
                         <i class="fas fa-phone"></i>
                     </div>
                     <h3 class="text-xl font-bold text-white mb-3 tracking-wide">Phone Number</h3>
-                    <p class="text-slate-300 font-medium text-lg">+91 93506 89645</p>
+                    <p class="text-slate-300 font-medium text-lg">+91 989944 2955</p>
                 </a>
 
                 <!-- Facebook Card -->
@@ -181,6 +226,45 @@
             </div>
         </div>
     </footer>
+
+    <!-- Mobile Floating Bottom Menu -->
+    <div class="md:hidden fixed bottom-4 left-4 right-4 bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl shadow-[0_8px_32px_0_rgba(0,0,0,0.5)] z-50 flex justify-around items-center p-3 text-white">
+        <a href="#home" class="flex flex-col items-center hover:text-accent transition-colors">
+            <i class="fas fa-home text-lg"></i>
+            <span class="text-[10px] mt-1 font-medium">Home</span>
+        </a>
+        <a href="#about" class="flex flex-col items-center hover:text-accent transition-colors">
+            <i class="fas fa-user text-lg"></i>
+            <span class="text-[10px] mt-1 font-medium">Baare Mein</span>
+        </a>
+        <a href="tel:+919899442955" class="flex flex-col items-center hover:text-green-400 transition-colors">
+            <i class="fas fa-phone-alt text-lg"></i>
+            <span class="text-[10px] mt-1 font-medium">Call</span>
+        </a>
+        <a href="https://wa.me/919899442955" target="_blank" class="flex flex-col items-center hover:text-green-500 transition-colors">
+            <i class="fab fa-whatsapp text-xl"></i>
+            <span class="text-[10px] mt-1 font-medium">WhatsApp</span>
+        </a>
+    </div>
+
+    <!-- Interactivity Script -->
+    <script>
+        // Scroll Reveal Animation Observer
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                var elementVisible = 100;
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add("active");
+                }
+            }
+        }
+        window.addEventListener("scroll", reveal);
+        // Trigger once on load
+        reveal();
+    </script>
 
 </body>
 </html>
