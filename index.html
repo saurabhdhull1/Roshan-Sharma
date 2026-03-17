@@ -1,9 +1,8 @@
 <!DOCTYPE html>
-<html lang="hi">
+<html lang="hi" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Website title aur SEO meta tags -->
     <title>Roshan Sharma - Politician | Sonipat</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -12,30 +11,55 @@
             theme: {
                 extend: {
                     colors: {
-                        primary: '#1e3a8a', // Deep blue
-                        accent: '#f97316',  // Orange accent typical for Indian politics
+                        primary: '#1e3a8a', 
+                        accent: '#f97316',  
+                    },
+                    animation: {
+                        'blob': 'blob 7s infinite',
+                    },
+                    keyframes: {
+                        blob: {
+                            '0%': { transform: 'translate(0px, 0px) scale(1)' },
+                            '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
+                            '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
+                            '100%': { transform: 'translate(0px, 0px) scale(1)' },
+                        }
                     }
                 }
             }
         }
     </script>
+    <style>
+        /* Custom scrollbar for better UI */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0f172a; }
+        ::-webkit-scrollbar-thumb { background: #f97316; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #ea580c; }
+    </style>
 </head>
-<body class="bg-gray-50 font-sans antialiased text-gray-800 flex flex-col min-h-screen">
+<body class="bg-slate-900 text-slate-100 font-sans antialiased flex flex-col min-h-screen relative overflow-x-hidden selection:bg-accent selection:text-white">
 
-    <!-- Navbar section -->
-    <nav class="bg-white shadow-md fixed w-full z-10 top-0">
+    <!-- Background Animated Blobs for Glass Effect -->
+    <div class="fixed inset-0 w-full h-full pointer-events-none z-[-1] overflow-hidden">
+        <div class="absolute top-0 -left-4 w-72 h-72 bg-blue-600 rounded-full mix-blend-multiply filter blur-3xl opacity-40 animate-blob"></div>
+        <div class="absolute top-0 -right-4 w-72 h-72 bg-orange-500 rounded-full mix-blend-multiply filter blur-3xl opacity-40 animate-blob animation-delay-2000"></div>
+        <div class="absolute -bottom-8 left-20 w-72 h-72 bg-purple-600 rounded-full mix-blend-multiply filter blur-3xl opacity-40 animate-blob animation-delay-4000"></div>
+    </div>
+
+    <!-- Navbar section (Glass) -->
+    <nav class="fixed w-full z-50 top-0 bg-white/10 backdrop-blur-lg border-b border-white/10 shadow-[0_4px_30px_rgba(0,0,0,0.1)] transition-all duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-16 items-center">
-                <div class="flex-shrink-0 flex items-center">
-                    <span class="font-bold text-2xl text-primary">Roshan Sharma</span>
+            <div class="flex justify-between h-20 items-center">
+                <div class="flex-shrink-0 flex items-center group cursor-pointer">
+                    <span class="font-bold text-3xl tracking-tight text-white group-hover:text-accent transition duration-300">Roshan Sharma</span>
                 </div>
                 <div class="hidden md:flex space-x-8">
-                    <a href="#home" class="text-gray-600 hover:text-accent font-medium">Home</a>
-                    <a href="#about" class="text-gray-600 hover:text-accent font-medium">Mere Baare Mein</a>
-                    <a href="#contact" class="text-gray-600 hover:text-accent font-medium">Sampark Karein</a>
+                    <a href="#home" class="text-slate-200 hover:text-accent font-semibold tracking-wide transition-colors duration-300 relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-accent after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left">Home</a>
+                    <a href="#about" class="text-slate-200 hover:text-accent font-semibold tracking-wide transition-colors duration-300 relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-accent after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left">Mere Baare Mein</a>
+                    <a href="#contact" class="text-slate-200 hover:text-accent font-semibold tracking-wide transition-colors duration-300 relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-accent after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left">Sampark Karein</a>
                 </div>
                 <div class="md:hidden flex items-center">
-                    <button class="text-gray-600 hover:text-primary focus:outline-none">
+                    <button class="text-slate-200 hover:text-white focus:outline-none p-2 rounded-lg bg-white/5 hover:bg-white/10 backdrop-blur-sm transition">
                         <i class="fas fa-bars text-2xl"></i>
                     </button>
                 </div>
@@ -44,88 +68,96 @@
     </nav>
 
     <!-- Hero Section -->
-    <section id="home" class="pt-24 pb-12 md:pt-32 md:pb-24 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center">
+    <section id="home" class="pt-32 pb-16 md:pt-40 md:pb-24 flex-grow flex items-center relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col-reverse md:flex-row items-center gap-12">
             
-            <!-- Hero Text -->
-            <div class="md:w-1/2 md:pr-12 text-center md:text-left mb-10 md:mb-0">
-                <span class="text-accent font-semibold tracking-wider uppercase text-sm">Sonipat Ka Sevak</span>
-                <h1 class="mt-2 text-4xl font-extrabold text-gray-900 sm:text-5xl md:text-6xl leading-tight">
+            <!-- Hero Text (Glass Card) -->
+            <div class="md:w-1/2 p-8 md:p-10 rounded-3xl bg-white/5 backdrop-blur-xl border border-white/10 shadow-[0_8px_32px_0_rgba(31,38,135,0.3)] text-center md:text-left transition-transform duration-500 hover:-translate-y-2">
+                <span class="inline-block py-1 px-3 rounded-full bg-accent/20 border border-accent/50 text-accent font-semibold tracking-wider uppercase text-xs mb-4 shadow-[0_0_10px_rgba(249,115,22,0.3)]">Sonipat Ka Sevak</span>
+                <h1 class="mt-2 text-4xl font-extrabold text-white sm:text-5xl md:text-6xl leading-tight drop-shadow-md">
                     Shri Roshan Sharma
                 </h1>
-                <p class="mt-4 text-xl text-gray-600">
+                <p class="mt-6 text-lg md:text-xl text-slate-300 font-light leading-relaxed">
                     Jan sewa hi parmo dharma. Sonipat ke vikas aur pragati ke liye samarpit aapka apna neta.
                 </p>
-                <div class="mt-8 flex flex-col sm:flex-row justify-center md:justify-start space-y-4 sm:space-y-0 sm:space-x-4">
-                    <a href="#contact" class="bg-primary text-white px-8 py-3 rounded-md font-medium hover:bg-blue-900 transition duration-300 shadow-lg text-center">
-                        Sath Judein
+                <div class="mt-10 flex flex-col sm:flex-row justify-center md:justify-start gap-4">
+                    <a href="#contact" class="bg-gradient-to-r from-accent to-orange-500 text-white px-8 py-3.5 rounded-xl font-bold hover:shadow-[0_0_20px_rgba(249,115,22,0.6)] transform hover:-translate-y-1 transition duration-300 text-center flex items-center justify-center gap-2">
+                        <span>Sath Judein</span> <i class="fas fa-arrow-right text-sm"></i>
                     </a>
-                    <a href="tel:+919350689645" class="bg-white text-primary border-2 border-primary px-8 py-3 rounded-md font-medium hover:bg-gray-50 transition duration-300 text-center">
-                        <i class="fas fa-phone-alt mr-2"></i> Call Karein
+                    <a href="tel:+919350689645" class="bg-white/10 backdrop-blur-md text-white border border-white/20 px-8 py-3.5 rounded-xl font-bold hover:bg-white/20 transform hover:-translate-y-1 transition duration-300 text-center flex items-center justify-center gap-2 group">
+                        <i class="fas fa-phone-alt group-hover:rotate-12 transition-transform"></i> Call Karein
                     </a>
                 </div>
             </div>
 
             <!-- Hero Image -->
-            <div class="md:w-1/2 flex justify-center">
-                <div class="relative w-72 h-72 md:w-96 md:h-96 rounded-full overflow-hidden border-8 border-white shadow-2xl">
-                    <!-- Placeholder image jisme Facebook se asli photo lagai jayegi -->
-                    <img src="my.jpg" alt="" class="w-full h-full object-cover object-center">
+            <div class="md:w-1/2 flex justify-center perspective-1000">
+                <div class="relative w-72 h-72 md:w-[400px] md:h-[400px] rounded-full overflow-hidden border-[6px] border-white/20 shadow-[0_0_40px_rgba(255,255,255,0.1)] backdrop-blur-sm transform hover:scale-105 hover:rotate-3 transition duration-500 group">
+                    <!-- Added a subtle overlay gradient over the image for better blending -->
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent z-10"></div>
+                    <img src="my.jpg" alt="Shri Roshan Sharma" class="w-full h-full object-cover object-center group-hover:scale-110 transition duration-700 ease-in-out">
                 </div>
             </div>
         </div>
     </section>
 
     <!-- About Section -->
-    <section id="about" class="py-16 bg-gray-100">
+    <section id="about" class="py-20 relative z-10">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl font-extrabold text-gray-900">Mere Baare Mein</h2>
-                <div class="w-16 h-1 bg-accent mx-auto mt-4"></div>
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-white to-slate-400 drop-shadow-sm">Mere Baare Mein</h2>
+                <div class="w-24 h-1.5 bg-gradient-to-r from-accent to-orange-400 mx-auto mt-6 rounded-full shadow-[0_0_10px_rgba(249,115,22,0.5)]"></div>
             </div>
-            <div class="bg-white rounded-lg shadow-md p-8 text-center md:text-left text-gray-700 text-lg leading-relaxed">
-                <p class="mb-4">
+            
+            <div class="max-w-4xl mx-auto bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-10 md:p-14 shadow-[0_8px_32px_0_rgba(0,0,0,0.3)] text-center text-slate-200 text-xl leading-relaxed font-light relative overflow-hidden group hover:border-white/20 transition-colors duration-500">
+                <!-- Decorative element inside card -->
+                <div class="absolute -top-10 -right-10 w-32 h-32 bg-blue-500/20 rounded-full blur-2xl group-hover:bg-blue-500/30 transition-colors"></div>
+                <div class="absolute -bottom-10 -left-10 w-32 h-32 bg-orange-500/20 rounded-full blur-2xl group-hover:bg-orange-500/30 transition-colors"></div>
+                
+                <i class="fas fa-quote-left text-4xl text-white/20 absolute top-6 left-8"></i>
+                <p class="mb-6 relative z-10">
                     Mera lakshya Sonipat ki janta ki aawaz banna aur har varg ke utthan ke liye kaam karna hai. Ek majboot aur viksit Sonipat banane ke liye main hamesha tatpar hoon.
                 </p>
-                <p>
-                    Aapka saath aur vishwas hi meri sabse badi taqat hai. Aaiye milkar Sonipat ko ek nai unchai par le chalein.
+                <p class="relative z-10">
+                    Aapka saath aur vishwas hi meri sabse badi taqat hai. <span class="text-accent font-medium">Aaiye milkar Sonipat ko ek nai unchai par le chalein.</span>
                 </p>
+                <i class="fas fa-quote-right text-4xl text-white/20 absolute bottom-6 right-8"></i>
             </div>
         </div>
     </section>
 
     <!-- Contact & Social Media Section -->
-    <section id="contact" class="py-16 bg-white">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 class="text-3xl font-extrabold text-gray-900 mb-8">Sampark Karein</h2>
+    <section id="contact" class="py-20 relative z-10">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl md:text-5xl font-extrabold text-white mb-16 drop-shadow-md">Sampark Karein</h2>
             
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10">
                 
                 <!-- Phone Card -->
-                <a href="tel:+919350689645" class="bg-gray-50 p-6 rounded-lg shadow hover:shadow-lg transition duration-300 border border-gray-100 flex flex-col items-center">
-                    <div class="w-16 h-16 bg-green-100 text-green-600 rounded-full flex items-center justify-center text-2xl mb-4">
+                <a href="tel:+919350689645" class="group bg-white/5 hover:bg-white/10 backdrop-blur-lg border border-white/10 hover:border-green-500/50 p-8 rounded-3xl shadow-xl hover:shadow-[0_0_30px_rgba(34,197,94,0.2)] transition-all duration-300 transform hover:-translate-y-3 flex flex-col items-center">
+                    <div class="w-20 h-20 bg-green-500/20 border border-green-500/30 text-green-400 rounded-full flex items-center justify-center text-3xl mb-6 group-hover:scale-110 group-hover:bg-green-500 group-hover:text-white transition-all duration-300">
                         <i class="fas fa-phone"></i>
                     </div>
-                    <h3 class="text-lg font-bold text-gray-900 mb-2">Phone Number</h3>
-                    <p class="text-gray-600 font-medium">+91 93506 89645</p>
+                    <h3 class="text-xl font-bold text-white mb-3 tracking-wide">Phone Number</h3>
+                    <p class="text-slate-300 font-medium text-lg">+91 93506 89645</p>
                 </a>
 
                 <!-- Facebook Card -->
-                <a href="https://www.facebook.com/share/1BaJtPgsPp/?mibextid=wwXIfr" target="_blank" class="bg-gray-50 p-6 rounded-lg shadow hover:shadow-lg transition duration-300 border border-gray-100 flex flex-col items-center">
-                    <div class="w-16 h-16 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center text-3xl mb-4">
+                <a href="https://www.facebook.com/share/1BaJtPgsPp/?mibextid=wwXIfr" target="_blank" class="group bg-white/5 hover:bg-white/10 backdrop-blur-lg border border-white/10 hover:border-blue-500/50 p-8 rounded-3xl shadow-xl hover:shadow-[0_0_30px_rgba(59,130,246,0.2)] transition-all duration-300 transform hover:-translate-y-3 flex flex-col items-center">
+                    <div class="w-20 h-20 bg-blue-500/20 border border-blue-500/30 text-blue-400 rounded-full flex items-center justify-center text-4xl mb-6 group-hover:scale-110 group-hover:bg-blue-500 group-hover:text-white transition-all duration-300">
                         <i class="fab fa-facebook-f"></i>
                     </div>
-                    <h3 class="text-lg font-bold text-gray-900 mb-2">Facebook Page</h3>
-                    <p class="text-gray-600">Facebook par judein</p>
+                    <h3 class="text-xl font-bold text-white mb-3 tracking-wide">Facebook Page</h3>
+                    <p class="text-slate-300">Facebook par judein</p>
                 </a>
 
                 <!-- Instagram Card -->
-                <a href="https://www.instagram.com/roshansharma_inc?igsh=MTJibjk4YThoNXZpaQ%3D%3D&utm_source=qr" target="_blank" class="bg-gray-50 p-6 rounded-lg shadow hover:shadow-lg transition duration-300 border border-gray-100 flex flex-col items-center">
-                    <div class="w-16 h-16 bg-pink-100 text-pink-600 rounded-full flex items-center justify-center text-3xl mb-4">
+                <a href="https://www.instagram.com/roshansharma_inc?igsh=MTJibjk4YThoNXZpaQ%3D%3D&utm_source=qr" target="_blank" class="group bg-white/5 hover:bg-white/10 backdrop-blur-lg border border-white/10 hover:border-pink-500/50 p-8 rounded-3xl shadow-xl hover:shadow-[0_0_30px_rgba(236,72,153,0.2)] transition-all duration-300 transform hover:-translate-y-3 flex flex-col items-center">
+                    <div class="w-20 h-20 bg-pink-500/20 border border-pink-500/30 text-pink-400 rounded-full flex items-center justify-center text-4xl mb-6 group-hover:scale-110 group-hover:bg-gradient-to-tr group-hover:from-yellow-400 group-hover:via-pink-500 group-hover:to-purple-500 group-hover:text-white group-hover:border-transparent transition-all duration-300">
                         <i class="fab fa-instagram"></i>
                     </div>
-                    <h3 class="text-lg font-bold text-gray-900 mb-2">Instagram</h3>
-                    <p class="text-gray-600">Instagram par follow karein</p>
+                    <h3 class="text-xl font-bold text-white mb-3 tracking-wide">Instagram</h3>
+                    <p class="text-slate-300">Instagram par follow karein</p>
                 </a>
 
             </div>
@@ -133,10 +165,20 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-gray-900 text-white py-8 mt-auto">
-        <div class="max-w-7xl mx-auto px-4 text-center">
-            <p class="mb-2 font-semibold text-lg">Shri Roshan Sharma</p>
-            <p class="text-gray-400 text-sm">© 2026 Roshan Sharma, Sonipat. Sabhi adhikar surakshit hain.</p>
+    <footer class="bg-black/40 backdrop-blur-xl border-t border-white/10 text-white py-10 mt-auto relative z-10">
+        <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center text-center md:text-left gap-4">
+            <div>
+                <p class="font-bold text-2xl tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-white to-slate-400">Shri Roshan Sharma</p>
+                <p class="text-slate-400 text-sm mt-2">© 2026 Roshan Sharma, Sonipat. Sabhi adhikar surakshit hain.</p>
+            </div>
+            <div class="flex space-x-4">
+                <a href="https://www.facebook.com/share/1BaJtPgsPp/?mibextid=wwXIfr" target="_blank" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-blue-600 transition-colors">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="https://www.instagram.com/roshansharma_inc?igsh=MTJibjk4YThoNXZpaQ%3D%3D&utm_source=qr" target="_blank" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-pink-600 transition-colors">
+                    <i class="fab fa-instagram"></i>
+                </a>
+            </div>
         </div>
     </footer>
 
